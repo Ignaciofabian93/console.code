@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fira_Code } from "next/font/google";
+import Providers from "./providers";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const fira = Fira_Code({
+  // weight: ["400", "500", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning={true}>
+      <body className={fira.className} suppressHydrationWarning={true}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
