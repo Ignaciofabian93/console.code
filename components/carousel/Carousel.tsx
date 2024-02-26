@@ -14,9 +14,11 @@ const Carousel = () => {
   );
   const [nextImage, setNextImage] = useState(SectionImages[1]);
   const [direction, setDirection] = useState("right");
+  const [counter, setCounter] = useState(0);
 
   const moveLeft = () => {
     setDirection("left");
+    setCounter((prev) => prev + 1);
     const currentIndex = SectionImages.indexOf(currentImage);
     const newIndex =
       (currentIndex - 1 + SectionImages.length) % SectionImages.length;
@@ -32,6 +34,7 @@ const Carousel = () => {
   };
   const moveRight = () => {
     setDirection("right");
+    setCounter((prev) => prev - 1);
     const currentIndex = SectionImages.indexOf(currentImage);
     const newIndex = (currentIndex + 1) % SectionImages.length;
 
@@ -47,19 +50,19 @@ const Carousel = () => {
 
   return (
     <section className="container h-full flex flex-col items-center pt-[3rem]">
-      <h1 className="text-2xl mb-[2rem]">Sections</h1>
+      <h1 className="text-2xl mb-[1rem] font-semibold">Sections</h1>
       <AnimatePresence>
-        <motion.article className="container flex items-center justify-center w-full h-[50%]">
+        <motion.article className="container flex items-center justify-center w-full h-[40%] mb-[2rem]">
           <motion.div
             key={prevImage.alt}
             initial={{
               opacity: 0,
-              x: direction === "left" ? "-100%" : "100%",
+              x: direction === "left" ? "-50%" : "50%",
             }}
             animate={{ opacity: 1, x: 0 }}
             exit={{
               opacity: 0,
-              x: direction === "left" ? "100%" : "-100%",
+              x: direction === "left" ? "50%" : "-50%",
             }}
             transition={{ duration: 0.3 }}
             className="flex flex-col items-center w-[25%]"
@@ -67,28 +70,20 @@ const Carousel = () => {
             <Image
               src={prevImage.image}
               alt={prevImage.alt}
-              className="w-[100px] h-[100px] snap-x"
+              className="w-[90px] h-[90px] snap-x"
             />
             <motion.p className="text-tiny">{prevImage.alt}</motion.p>
           </motion.div>
           <motion.div
-            key={direction}
-            initial={{
-              opacity: 0,
-              x: direction === "left" ? "-100%" : "100%",
-            }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{
-              opacity: 0,
-              x: direction === "left" ? "100%" : "-100%",
-            }}
+            key={counter}
+            animate={{ opacity: [0, 1] }}
             transition={{ duration: 0.3 }}
             className="flex flex-col items-center w-[50%]"
           >
             <Image
               src={currentImage.image}
               alt={currentImage.alt}
-              className="w-[200px] h-[200px] snap-x"
+              className="w-[180px] h-[180px] snap-x"
             />
             <motion.p className="text-md">{currentImage.alt}</motion.p>
           </motion.div>
@@ -109,7 +104,7 @@ const Carousel = () => {
             <Image
               src={nextImage.image}
               alt={nextImage.alt}
-              className="w-[100px] h-[100px] snap-x"
+              className="w-[90px] h-[90px] snap-x"
             />
             <motion.p className="text-tiny">{nextImage.alt}</motion.p>
           </motion.div>
@@ -120,8 +115,8 @@ const Carousel = () => {
         right={moveRight}
         onClick={() => navigate(`${currentImage.href}`)}
       />
-      <div>
-        <p>Text</p>
+      <div className="container px-[2rem] mt-[2rem]">
+        <p className="text-center">{currentImage.desc}</p>
       </div>
     </section>
   );
