@@ -7,6 +7,8 @@ import git from "@/assets/images/git.png";
 import postgres from "@/assets/images/postgres.png";
 import mongo from "@/assets/images/mongodb.png";
 
+export const javascript = js;
+
 export const SectionImages = [
   {
     image: js,

@@ -49,7 +49,7 @@ const Carousel = () => {
   };
 
   return (
-    <section className="container h-full flex flex-col items-center pt-[3rem]">
+    <section className="container max-w-[768px] h-full flex flex-col items-center pt-[3rem]">
       <h1 className="text-2xl mb-[1rem] font-semibold">Sections</h1>
       <AnimatePresence>
         <motion.article className="container flex items-center justify-center w-full h-[40%] mb-[2rem]">
@@ -115,7 +115,7 @@ const Carousel = () => {
         right={moveRight}
         onClick={() => navigate(`${currentImage.href}`)}
       />
-      <div className="container px-[2rem] mt-[2rem]">
+      <div className="container max-w-[80%] px-[2rem] mt-[2rem]">
         <p className="text-center">{currentImage.desc}</p>
       </div>
     </section>

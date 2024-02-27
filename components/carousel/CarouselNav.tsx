@@ -10,7 +10,7 @@ type NavProps = {
 
 const CarouselNav = ({ onClick, left, right }: NavProps) => {
   return (
-    <div className="container flex items-center justify-between px-[2rem]">
+    <div className="container max-w-[80%] flex items-center justify-between px-[2rem]">
       <LeftIcon onClick={left} />
       <PrimaryButton text="Learn" onClick={onClick} />
       <RightIcon onClick={right} />

@@ -18,11 +18,18 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full h-[4rem] flex items-center justify-center relative p-[0.5rem]">
+    <nav className="w-full h-[4rem] flex items-center justify-center relative">
       <div className="w-fit h-fit flex items-center justify-center absolute top-[5%] left-[1%] z-20 md:hidden">
         <MenuIcon onClick={toggleMenu} invertColor={isOpen} />
       </div>
-      <div className="w-full flex items-center justify-end">
+      <ul className="hidden md:w-full md:flex items-center justify-center">
+        {navData.map((item) => (
+          <li key={item.title} className="mx-[2rem] font-semibold">
+            {item.title}
+          </li>
+        ))}
+      </ul>
+      <div className="w-fit flex items-center absolute top-[26%] right-[5%]">
         <CustomSwitch
           toggle={() => setTheme(theme === "light" ? "dark" : "light")}
           startContent={
