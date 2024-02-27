@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import Providers from "./providers";

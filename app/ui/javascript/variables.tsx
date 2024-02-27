@@ -19,7 +19,7 @@ const Variables = () => {
           Variables are used to store data in a program. They are created using
           the <span className="text-blue-500 font-bold">let</span> keyword or
           <span className="text-blue-500 font-bold"> const</span> keyword when
-          your value doesn't need to be changed.
+          your value doesnt need to be changed.
         </p>
         <p>
           Data types are used to specify the type of data that a variable
@@ -45,8 +45,7 @@ const Variables = () => {
             them using let or const
           </p>
           <p className="my-[8px]">
-            Strings can be declared using single quotes and double quotes '' or
-            ""
+            Strings can be declared using single quotes and double quotes or
           </p>
           <p className="my-[8px]">
             Numbers can be declared using integers or decimals
