@@ -29,7 +29,7 @@ const JavaScript = () => {
             key={"text"}
             className="container max-w-[768px] text-center mt-[1rem]"
           >
-            JavaScript is a dynamic programming language that's used for web
+            JavaScript is a dynamic programming language used for web
             development, in web applications, for game development, and lots
             more. It allows you to implement dynamic features on web pages that
             cannot be done with only HTML and CSS.
